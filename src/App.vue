@@ -1,17 +1,23 @@
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Suspense>
+    <dashboard />
+    <template #fallback>
+      loading...
+    </template>
+  </Suspense>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { defineComponent } from '@vue/runtime-core';
+import Dashboard from './components/Dashboard.vue';
 
-export default {
+export default defineComponent({
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    components: {
+    Dashboard,
+  },
+})
 </script>
 
 <style>
